@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Reading – Computer Delivered Test</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+header {
+    background: #003366;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#timer {
+    font-size: 18px;
+    font-weight: bold;
+}
+.container {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+.passage {
+    width: 50%;
+    padding: 20px;
+    background: white;
+    overflow-y: scroll;
+    border-right: 1px solid #ccc;
+}
+.questions {
+    width: 50%;
+    padding: 20px;
+    overflow-y: scroll;
+}
+.question {
+    margin-bottom: 15px;
+}
+select, input[type="text"] {
+    padding: 6px;
+    font-size: 14px;
+    width: 90%;
+}
+.section-title {
+    font-weight: bold;
+    margin-top: 25px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.correct { background: #d4edda; }
+.incorrect { background: #f8d7da; }
+img {
+    max-width: 100%;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+}
+#score {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.watermark {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    font-size: 13px;
+    opacity: 0.6;
+    z-index: 999;
+}
+.watermark a {
+    color: #003366;
+    text-decoration: none;
+}
+.watermark a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>IELTS Academic Reading – Passage 1</div>
+    <div id="timer">20:00</div>
+</header>
+
+<div class="container">
+
+<!-- PASSAGE -->
+<div class="passage">
+<h2>The Olympic Torch</h2>
+
+<p>Every Olympic Games begins with a torch-lighting ceremony in Greece, the home of the original Games, followed by a torch relay in which runners carry the flame to the Olympic stadium in the country that is hosting the Games.</p>
+
+<p>Each runner carries the torch for one stage of its trip, then lights the torch of the next person in the relay. The final torchbearer runs around the stadium track once, then lights the Olympic cauldron, signalling the official start of the Olympic Games.</p>
+
+<p>Each time the Games are held, a new torch is created. Different designs are sent to the Olympic Committee, who select the most functional and attractive one.</p>
+
+<p>More than a year may be needed to design and construct a torch. It must survive different climates, burn brightly, and be safe to carry.</p>
+
+<p>After the relay, runners are allowed to buy their torch as a souvenir.</p>
+
+<p>Early torches used dangerous solid fuels. Liquid fuels were introduced in 1972, and later designs improved safety, brightness, and environmental impact.</p>
+</div>
+
+<!-- QUESTIONS -->
+<div class="questions">
+
+<h2>Questions 1–4</h2>
+
+<div class="question">1.
+<select id="q1">
+<option value="">Choose</option>
+<option value="G">G design</option>
+<option value="A">A climates</option>
+<option value="F">F flame</option>
+<option value="C">C souvenir</option>
+</select>
+</div>
+
+<div class="question">2.
+<select id="q2">
+<option value="">Choose</option>
+<option value="A">A climates</option>
+<option value="D">D cultures</option>
+<option value="J">J sports</option>
+</select>
+</div>
+
+<div class="question">3.
+<select id="q3">
+<option value="">Choose</option>
+<option value="F">F flame</option>
+<option value="H">H inscription</option>
+<option value="I">I production</option>
+</select>
+</div>
+
+<div class="question">4.
+<select id="q4">
+<option value="">Choose</option>
+<option value="C">C souvenir</option>
+<option value="E">E prize</option>
+<option value="K">K gift</option>
+</select>
+</div>
+
+<div class="section-title">Questions 5–9</div>
+
+<div class="question">5.
+<select id="q5">
+<option value="">Choose</option>
+<option value="A">A Berlin (1936)</option>
+<option value="B">B Melbourne (1956)</option>
+<option value="C">C Munich (1972)</option>
+<option value="D">D Atlanta (1996)</option>
+<option value="E">E Sydney (2000)</option>
+<option value="F">F Salt Lake City (2002)</option>
+<option value="G">G Athens (2004)</option>
+</select>
+</div>
+
+<div class="question">6.
+<select id="q6">
+<option value="">Choose</option>
+<option value="F">F Salt Lake City (2002)</option>
+</select>
+</div>
+
+<div class="question">7.
+<select id="q7">
+<option value="">Choose</option>
+<option value="B">B Melbourne (1956)</option>
+</select>
+</div>
+
+<div class="question">8.
+<select id="q8">
+<option value="">Choose</option>
+<option value="C">C Munich (1972)</option>
+</select>
+</div>
+
+<div class="question">9.
+<select id="q9">
+<option value="">Choose</option>
+<option value="D">D Atlanta (1996)</option>
+</select>
+</div>
+
+<div class="section-title">Questions 10–13</div>
+<p><em>Choose NO MORE THAN TWO WORDS.</em></p>
+
+<img src="torch-diagram.png" alt="Olympic torch diagram">
+
+<div class="question">10. <input type="text" id="q10"></div>
+<div class="question">11. <input type="text" id="q11"></div>
+<div class="question">12. <input type="text" id="q12"></div>
+<div class="question">13. <input type="text" id="q13"></div>
+
+<button onclick="submitTest()">Submit Answers</button>
+<div id="score"></div>
+
+</div>
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark">
+    Created by
+    <a href="https://facebook.com/profile.php?id=61583906522948" target="_blank">
+        facebook.com/profile.php?id=61583906522948
+    </a>
+</div>
+
+<script>
+let time = 20 * 60;
+const timerDisplay = document.getElementById("timer");
+
+const countdown = setInterval(() => {
+    let min = Math.floor(time / 60);
+    let sec = time % 60;
+    timerDisplay.textContent = min + ":" + (sec < 10 ? "0" : "") + sec;
+    time--;
+    if (time < 0) {
+        clearInterval(countdown);
+        submitTest();
+    }
+}, 1000);
+
+const answers = {
+    q1: "G",
+    q2: "A",
+    q3: "F",
+    q4: "C",
+    q5: "A",
+    q6: "F",
+    q7: "B",
+    q8: "C",
+    q9: "D",
+    q10: "handle",
+    q11: "gas",
+    q12: "holes",
+    q13: "propane, butane"
+};
+
+function submitTest() {
+    clearInterval(countdown);
+    let score = 0;
+
+    for (let q in answers) {
+        let el = document.getElementById(q);
+        if (!el) continue;
+
+        let user = el.value.trim().toLowerCase();
+        let correct = answers[q].toLowerCase();
+
+        if (user === correct) {
+            el.classList.add("correct");
+            score++;
+        } else {
+            el.classList.add("incorrect");
+        }
+        el.disabled = true;
+    }
+
+    document.getElementById("score").textContent =
+        "Your score: " + score + " / 13";
+}
+</script>
+
+</body>
+</html>
